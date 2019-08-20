@@ -43,14 +43,15 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 function getLength(arr, cb) {
   return cb(arr.length());
 }
-getLength(arr,(item) => {console.log(item)});
+
+console.log(getLength(items));
 
 
   // last passes the last item of the array into the callback.
 function last(arr, cb) { 
-  arr.filter(function(item){
+  for (let i = 0; i< arr.length; i++){
     return cb(arr[i] === arr.length)
-  })
+  }
 }
 
 
