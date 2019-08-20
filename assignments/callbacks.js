@@ -1,7 +1,7 @@
 // Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
-
+const items2 = ['Pencil', 'Notebook', 'Gum Wrapper', 'yo-yo', 'Gum', 'Waterbottle'];
 /* 
 
   // GIVEN THIS PROBLEM:
@@ -40,45 +40,57 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
   // getLength passes the length of the array into the callback.
-function getLength(arr, cb) {
-  return cb(arr.length());
+function getLength(arr, cb){
+  return cb(arr.length);
 }
 
-console.log(getLength(items));
+console.log(getLength(items, Object));
 
 
-  // last passes the last item of the array into the callback.
+  // last passes the last item of the array into the callback. Return 'Gum'.
 function last(arr, cb) { 
-  for (let i = 0; i< arr.length; i++){
-    return cb(arr[i] === arr.length)
-  }
+    return cb(arr[arr.length - 1])
 }
+
+console.log(last(items, Object));
+
 
 
   // sumNums adds two numbers (x, y) and passes the result to the callback.
-function sumNums(x, y, cb) {
-  return cb(x + y);
+const add = (num1, num2) => {
+  return num1 + num2
 }
+function sumNums(x, y, cb) {
+  return cb(x, y);
+}
+console.log(sumNums(2, 4, add));
 
-console.log(sumNums(2, 4, cb));
 
 
   // multiplyNums multiplies two numbers and passes the result to the callback.
-function multiplyNums(x, y, cb) {
-  return cb(x * y);
+const multiply = (num1, num2) => {
+  return num1 * num2
 }
-console.log(miltiplyNums(5, 3));
+function multiplyNums(x, y, cb) {
+  return cb(x, y);
+}
+console.log(multiplyNums(5, 3, multiply));
+
 
 
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
 function contains(item, list, cb) {
-  items.filter(function(item){
-    return item.list;
-  })
+  for(let i = 0; i < item.length; i++){
+    if(item[i] === list[i]){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }
 
-console.log(contains(items))
+console.log(contains(items2, items))
 
 
 
