@@ -4,6 +4,23 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+function food(dish1){
+  console.log(`The ${dish1} is a very popular dish.`);
+
+  function ingredients(ing1){
+    console.log(`The ${dish1} is made with a lot of ${ing1}`);
+
+    function randomness(random){
+      console.log(`The ${ing1} is harvested from ${random}`);
+
+    }//random
+    randomness('apple trees')
+  }//ingredient
+  ingredients('basil')
+}//dishName
+food('burrito');
+
+
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
