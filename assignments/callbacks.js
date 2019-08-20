@@ -90,15 +90,17 @@ function contains(item, list, cb) {
   }
 }
 
-console.log(contains(items2, items))
+console.log(contains(items, items2))
 
 
 
 
 /* STRETCH PROBLEM */
 
-function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
+function removeDuplicates(array, cb) {
+  return cb(array.map)
+
 }
